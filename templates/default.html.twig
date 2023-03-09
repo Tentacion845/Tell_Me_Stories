@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+        <p> Administrateur </p>
+        {% endif %}
+    {% else   %}
+        <a href="{{ path("app_login") }}">Login</a>
+    {% endif %}
+
+    {% if (story is defined and story is not empty) %}
+        <div>
+            {{ story.title }} <br>
+            {{ story.description }} <br>
+        </div>
+    {% else %}
+<p> Oups pas de Story pour le moment ^^ </p>
+    {% endif %} 
+
+
+
+{% endblock %}
