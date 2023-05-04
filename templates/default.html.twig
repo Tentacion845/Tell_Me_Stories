@@ -8,6 +8,7 @@
         </div>
         {% if is_granted('ROLE_ADMIN') %}
         <p> Administrateur </p>
+        <a href="{{path("app_admin")}}"> BackOffice </a> 
         {% endif %}
     {% else   %}
         <a href="{{ path("app_login") }}">Login</a>
