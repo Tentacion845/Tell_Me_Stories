@@ -1,4 +1,4 @@
-{% extends 'base_admin.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
 
@@ -39,4 +39,8 @@
         Sign in
     </button>
 </form>
+
+    <a href="{{path('app_register')}}"> Register </a>
+
+
 {% endblock %}
