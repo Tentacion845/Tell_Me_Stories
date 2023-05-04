@@ -2,21 +2,73 @@
 
 {% block body %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-        {% if is_granted('ROLE_ADMIN') %}
-        <p> Administrateur </p>
-        <a href="{{path("app_admin")}}"> BackOffice </a> 
-        {% endif %}
-    {% else   %}
-        <a href="{{ path("app_login") }}">Login</a>
-    {% endif %}
+<style> 
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+
+
+.center
+{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 56px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(75, 75, 250, 0.3);
+  border-radius: 3px;
+}
+.center h1{
+  text-align:center;
+  color:white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+}
+
+</style>
+
+<div class="center">
+
+    
+       
+
 
     {% if (story is defined and story is not empty) %}
-        <div>
-            {{ story.title }} <br>
+<div >
+        <h1 style="margin-top:100px;"> {{ story.title }} </h1>    
+        </div>
+        <div style="height:50vh; font-size:35px; padding:35px; font-weight:400; color:rgb(237, 235, 235);" class="d-flex justify-content-center align-items-center">
             {{ story.description }} <br>
         </div>
     {% else %}
@@ -25,4 +77,5 @@
 
 
 
+</div>
 {% endblock %}
